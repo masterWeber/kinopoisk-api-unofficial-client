@@ -3,7 +3,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-requirements = ["requests<=2.21.0"]
+requirements = ["requests<=2.26.0"]
 
 setuptools.setup(
     name="kinopoisk-api-unofficial-client",
@@ -17,7 +17,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=requirements,
     classifiers=[
-        "Programming Language :: Python :: 3.89",
+        "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
