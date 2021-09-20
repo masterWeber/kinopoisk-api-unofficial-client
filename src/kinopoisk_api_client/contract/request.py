@@ -9,14 +9,14 @@ from src.kinopoisk_api_client.contract.response import Response
 
 class Request(ABC):
     METHOD: HttpMethod = HttpMethod.GET
-    ROUTE: str = '/'
+    PATH: str = '/'
     RESPONSE: type = Response
 
     def method(self) -> HttpMethod:
         return self.METHOD
 
-    def route(self) -> str:
-        return self.ROUTE
+    def path(self) -> str:
+        return self.PATH
 
     def response_class(self) -> type:
         return self.RESPONSE

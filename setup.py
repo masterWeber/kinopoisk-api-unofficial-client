@@ -7,7 +7,7 @@ requirements = ["requests<=2.26.0"]
 
 setuptools.setup(
     name="kinopoisk-api-unofficial-client",
-    version="0.0.1",
+    version="0.9.0",
     author="Master Weber",
     author_email="master.weber@outlook.com",
     description="API Client for the unofficial Kinopoisk api",

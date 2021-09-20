@@ -11,8 +11,8 @@ class HttpClient:
     def __init__(self, base_url: str) -> None:
         self.__base_url = base_url
 
-    def request(self, method: HttpMethod, address: str, headers: Union[dict, None] = None) -> Response:
-        url = self.__base_url + address
+    def request(self, method: HttpMethod, path: str, headers: Union[dict, None] = None) -> Response:
+        url = self.__base_url + path
 
         if method == HttpMethod.GET:
             return requests.get(url=url, headers=headers)

@@ -1,0 +1,10 @@
+from enum import Enum
+
+
+class ProductionStatus(Enum):
+    FILMING = 'FILMING'
+    PRE_PRODUCTION = 'PRE_PRODUCTION'
+    COMPLETED = 'COMPLETED'
+    ANNOUNCED = 'ANNOUNCED'
+    UNKNOWN = 'UNKNOWN'
+    POST_PRODUCTION = 'POST_PRODUCTION'

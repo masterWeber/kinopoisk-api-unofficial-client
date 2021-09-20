@@ -1,5 +1,5 @@
 from abc import ABC
-from typing import Union, Any
+from typing import TypeVar, Generic
 
 from src.kinopoisk_api_client.client.exception.bad_request import BadRequest
 from src.kinopoisk_api_client.client.exception.not_found import NotFound
@@ -8,6 +8,8 @@ from src.kinopoisk_api_client.client.exception.unauthorized import Unauthorized
 from src.kinopoisk_api_client.client.http_client import HttpClient
 from src.kinopoisk_api_client.contract.request import Request
 from src.kinopoisk_api_client.contract.response import Response
+
+T = TypeVar('T', bound=Response)
 
 
 class ApiClient(ABC):
@@ -24,12 +26,12 @@ class ApiClient(ABC):
         self.__serializer = serializer
         self.__token = token
 
-    def _send_request(self, request: Request) -> Union[Response, Any]:
+    def _send_request(self, request: Request) -> Generic[T]:
         method = request.method()
-        address = request.route()
+        path = request.path()
         headers = {'X-API-KEY': self.__token}
 
-        response = self.__http_client.request(method, address, headers)
+        response = self.__http_client.request(method, path, headers)
 
         if response.status_code != 200:
 
