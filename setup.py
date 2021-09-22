@@ -3,11 +3,14 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-requirements = ["requests<=2.26.0"]
+requirements = [
+    "requests<=2.26.0",
+    "apischema==0.15.6"
+]
 
 setuptools.setup(
     name="kinopoisk-api-unofficial-client",
-    version="0.9.0",
+    version="0.10.0",
     author="Master Weber",
     author_email="master.weber@outlook.com",
     description="API Client for the unofficial Kinopoisk api",
