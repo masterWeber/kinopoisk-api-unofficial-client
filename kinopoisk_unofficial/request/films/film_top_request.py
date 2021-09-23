@@ -14,7 +14,7 @@ class FilmTopRequest(Request):
     __top_type: Optional[TopType]
     __page: int
 
-    def __init__(self, top_type: TopType, page: int = 1) -> None:
+    def __init__(self, top_type: TopType = None, page: int = 1) -> None:
         self.__top_type = top_type
         self.__page = page
 
