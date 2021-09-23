@@ -2,6 +2,7 @@
     <h1>Kinopoisk API Unofficial client</h1>
     <p>Python-модуль для взаимодействия с неофициальным <a href="https://kinopoiskapiunofficial.tech/">API КиноПоиска</a></p>
     <img align="center" src="https://img.shields.io/github/repo-size/masterWeber/kinopoisk-api-unofficial-client" alt="GitHub repo size">
+    <img align="center" src="https://img.shields.io/pypi/dm/kinopoisk-api-unofficial-client" alt="PyPI - Downloads">
     <img align="center" src="https://img.shields.io/github/stars/masterWeber/kinopoisk-api-unofficial-client" alt="GitHub Repo stars">
     <img align="center" src="https://img.shields.io/github/watchers/masterWeber/kinopoisk-api-unofficial-client" alt="GitHub watchers">
     <img align="center" src="https://img.shields.io/github/last-commit/masterWeber/kinopoisk-api-unofficial-client" alt="GitHub last commit">
