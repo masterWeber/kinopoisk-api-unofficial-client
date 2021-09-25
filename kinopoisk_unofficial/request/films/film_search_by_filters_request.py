@@ -90,6 +90,10 @@ class FilmSearchByFiltersRequest(Request):
     def page(self) -> int:
         return self.__page
 
+    @page.setter
+    def page(self, page: Optional[int]) -> None:
+        self.__page = page
+
     def path(self) -> str:
         options = {
             'country': ','.join(str(c) for c in self.country),
