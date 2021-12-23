@@ -125,9 +125,9 @@ request = FilmFrameRequest(507)
 response = api_client.films.send_film_frame_request(request)
 ```
 
-### Получить трейлеры,тизеры,видео для фильма по kinopoisk film id
+### Получить трейлеры, тизеры, видео для фильма по kinopoisk film id
 
-Возвращает трейлеры,тизеры,видео для фильма по kinopoisk film id.
+Возвращает трейлеры, тизеры, видео для фильма по kinopoisk film id.
 
 * `Эндпоинт`: /api/v2.2/films/{id}/videos
 * `Метод`: send_film_video_request(request: FilmVideoRequest) -> FilmVideoResponse
@@ -212,7 +212,7 @@ response = api_client.films.send_film_search_by_filters_request(request)
 ### Получить список фильмов из различных топов или коллекций
 
 Возвращает список фильмов с пагинацией. Каждая страница содержит не более чем 20 фильмов.
-Например https://www.kinopoisk.ru/top/lists/58/.
+Например: https://www.kinopoisk.ru/top/lists/58/.
 
 * `Эндпоинт`: /api/v2.2/films/top
 * `Метод`: send_film_top_request(request: FilmTopRequest) -> FilmTopResponse
@@ -245,7 +245,7 @@ response = api_client.films.send_related_film_request(request)
 
 ### Получить список цифровых релизов
 
-Возвращает список цифровых релизов. Например https://www.kinopoisk.ru/comingsoon/digital/
+Возвращает список цифровых релизов. Например: https://www.kinopoisk.ru/comingsoon/digital/
 
 * `Эндпоинт`: /api/v2.1/films/releases
 * `Метод`: send_digital_release_request(request: DigitalReleaseRequest) -> DigitalReleaseResponse
@@ -258,6 +258,24 @@ from kinopoisk_unofficial.model.dictonary.month import Month
 api_client = KinopoiskApiClient("<your_token>")
 request = DigitalReleaseRequest(2021, Month.SEPTEMBER)
 response = api_client.films.send_digital_release_request(request)
+```
+
+### Получить график кинопремьер
+
+Возвращает список кинопремьер. Например: https://www.kinopoisk.ru/premiere/
+
+* `Эндпоинт`: /api/v2.2/films/premieres
+* `Метод`: send_premiere_request(request: PremiereRequest) -> PremiereResponse
+
+```python
+from kinopoisk_unofficial.kinopoisk_api_client import KinopoiskApiClient
+from kinopoisk_unofficial.model.dictonary.month import Month
+from kinopoisk_unofficial.request.films.premiere_request import PremiereRequest
+
+api_client = KinopoiskApiClient('<your_token>')
+
+request = PremiereRequest(2021, Month.DECEMBER)
+response = api_client.films.send_premiere_request(request)
 ```
 
 ## reviews
@@ -301,9 +319,9 @@ response = api_client.reviews.send_review_details_request(request)
 
 Набор методов для работы с данными об актерах, режиссерах и т.д.
 
-### Получить данные об актерах, режисерах и т.д. по kinopoisk film id
+### Получить данные об актерах, режиссерах и т.д. по kinopoisk film id
 
-Возвращает данные об актерах, режисерах и т.д. по kinopoisk film id
+Возвращает данные об актерах, режиссерах и т.д. по kinopoisk film id
 
 * `Эндпоинт`: /api/v1/staff
 * `Метод`: send_staff_request(request: StaffRequest) -> StaffResponse
