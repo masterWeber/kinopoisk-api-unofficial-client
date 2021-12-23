@@ -9,6 +9,8 @@ from kinopoisk_unofficial.client.staff_api_client import StaffApiClient
 class KinopoiskApiClient:
     __base_url: str = 'https://kinopoiskapiunofficial.tech'
     __films: FilmsApiClient
+    __reviews: ReviewsApiClient
+    __staff: StaffApiClient
 
     def __init__(self, token: str) -> None:
         http_client = HttpClient(self.__base_url)

@@ -10,6 +10,7 @@ from kinopoisk_unofficial.request.films.film_sequels_and_prequels_request import
 from kinopoisk_unofficial.request.films.film_top_request import FilmTopRequest
 from kinopoisk_unofficial.request.films.film_video_request import FilmVideoRequest
 from kinopoisk_unofficial.request.films.filters_request import FiltersRequest
+from kinopoisk_unofficial.request.films.premiere_request import PremiereRequest
 from kinopoisk_unofficial.request.films.related_film_request import RelatedFilmRequest
 from kinopoisk_unofficial.request.films.search_by_keyword_request import SearchByKeywordRequest
 from kinopoisk_unofficial.request.films.seasons_request import SeasonsRequest
@@ -24,6 +25,7 @@ from kinopoisk_unofficial.response.films.film_sequels_and_prequels_response impo
 from kinopoisk_unofficial.response.films.film_top_response import FilmTopResponse
 from kinopoisk_unofficial.response.films.film_video_response import FilmVideoResponse
 from kinopoisk_unofficial.response.films.filters_response import FiltersResponse
+from kinopoisk_unofficial.response.films.premiere_response import PremiereResponse
 from kinopoisk_unofficial.response.films.related_film_respons import RelatedFilmResponse
 from kinopoisk_unofficial.response.films.search_by_keyword_response import SearchByKeywordResponse
 from kinopoisk_unofficial.response.films.seasons_response import SeasonsResponse
@@ -73,4 +75,7 @@ class FilmsApiClient(ApiClient):
         return self._send_request(request)
 
     def send_digital_release_request(self, request: DigitalReleaseRequest) -> DigitalReleaseResponse:
+        return self._send_request(request)
+
+    def send_premiere_request(self, request: PremiereRequest) -> PremiereResponse:
         return self._send_request(request)
