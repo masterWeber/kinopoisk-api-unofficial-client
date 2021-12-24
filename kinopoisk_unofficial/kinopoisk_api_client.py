@@ -2,6 +2,7 @@ import apischema
 
 from kinopoisk_unofficial.client.films_api_client import FilmsApiClient
 from kinopoisk_unofficial.client.http_client import HttpClient
+from kinopoisk_unofficial.client.persons_api_client import PersonsApiClient
 from kinopoisk_unofficial.client.reviews_api_client import ReviewsApiClient
 from kinopoisk_unofficial.client.staff_api_client import StaffApiClient
 
@@ -11,6 +12,7 @@ class KinopoiskApiClient:
     __films: FilmsApiClient
     __reviews: ReviewsApiClient
     __staff: StaffApiClient
+    __persons: PersonsApiClient
 
     def __init__(self, token: str) -> None:
         http_client = HttpClient(self.__base_url)
@@ -18,6 +20,7 @@ class KinopoiskApiClient:
         self.__films = FilmsApiClient(http_client, apischema, token)
         self.__reviews = ReviewsApiClient(http_client, apischema, token)
         self.__staff = StaffApiClient(http_client, apischema, token)
+        self.__persons = PersonsApiClient(http_client, apischema, token)
 
     @property
     def films(self) -> FilmsApiClient:
@@ -30,3 +33,7 @@ class KinopoiskApiClient:
     @property
     def staff(self) -> StaffApiClient:
         return self.__staff
+
+    @property
+    def persons(self) -> PersonsApiClient:
+        return self.__persons
