@@ -350,3 +350,22 @@ api_client = KinopoiskApiClient("<your_token>")
 request = PersonRequest(27977)
 response = api_client.staff.send_person_request(request)
 ```
+
+## persons
+
+### Получить данные об актерах, режиссерах и т.д. по имени
+
+Возвращает данные об актерах, режиссерах и т.д. по имени
+Одна страница может содержать до 50 элементов в items
+
+* `Эндпоинт`: /api/v1/persons
+* `Метод`: send_person_by_name_request(request: PersonByNameRequest) -> PersonByNameResponse
+
+```python
+from kinopoisk_unofficial.kinopoisk_api_client import KinopoiskApiClient
+from kinopoisk_unofficial.request.persons.person_by_name_request import PersonByNameRequest
+
+api_client = KinopoiskApiClient("<your_token>")
+request = PersonByNameRequest("Джеймс Кэмерон")
+response = api_client.persons.send_person_by_name_request(request)
+```
