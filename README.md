@@ -125,6 +125,35 @@ request = FilmFrameRequest(507)
 response = api_client.films.send_film_frame_request(request)
 ```
 
+### Получить изображения(кадры, постеры, фан-арты, обои и т.д.) связанные с фильмом по kinopoisk film id
+
+Данный эндпоинт возвращает изображения связанные с фильмом с пагинацией. Каждая страница содержит не более чем 20
+фильмов. Доступные изображения:
+
+ImageType
+
+- STILL - кадры
+- SHOOTING - изображения со съемок
+- POSTER - постеры
+- FAN_ART - фан-арты
+- PROMO - промо
+- CONCEPT - концепт-арты
+- WALLPAPER - обои
+- COVER - обложки
+- SCREENSHOT - скриншоты
+
+* `Эндпоинт`: /api/v2.2/films/{id}/images
+* `Метод`: send_image_request(self, request: ImageRequest) -> ImageResponse
+
+```python
+from kinopoisk_unofficial.kinopoisk_api_client import KinopoiskApiClient
+from kinopoisk_unofficial.request.films.image_request import ImageRequest
+
+api_client = KinopoiskApiClient("<your_token>")
+request = ImageRequest(507)
+response = api_client.films.send_image_request(request)
+```
+
 ### Получить трейлеры, тизеры, видео для фильма по kinopoisk film id
 
 Возвращает трейлеры, тизеры, видео для фильма по kinopoisk film id.
@@ -356,6 +385,7 @@ response = api_client.staff.send_person_request(request)
 ### Получить данные об актерах, режиссерах и т.д. по имени
 
 Возвращает данные об актерах, режиссерах и т.д. по имени
+
 Одна страница может содержать до 50 элементов в items
 
 * `Эндпоинт`: /api/v1/persons

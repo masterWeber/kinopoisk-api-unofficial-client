@@ -10,6 +10,7 @@ from kinopoisk_unofficial.request.films.film_sequels_and_prequels_request import
 from kinopoisk_unofficial.request.films.film_top_request import FilmTopRequest
 from kinopoisk_unofficial.request.films.film_video_request import FilmVideoRequest
 from kinopoisk_unofficial.request.films.filters_request import FiltersRequest
+from kinopoisk_unofficial.request.films.image_request import ImageRequest
 from kinopoisk_unofficial.request.films.premiere_request import PremiereRequest
 from kinopoisk_unofficial.request.films.related_film_request import RelatedFilmRequest
 from kinopoisk_unofficial.request.films.search_by_keyword_request import SearchByKeywordRequest
@@ -25,6 +26,7 @@ from kinopoisk_unofficial.response.films.film_sequels_and_prequels_response impo
 from kinopoisk_unofficial.response.films.film_top_response import FilmTopResponse
 from kinopoisk_unofficial.response.films.film_video_response import FilmVideoResponse
 from kinopoisk_unofficial.response.films.filters_response import FiltersResponse
+from kinopoisk_unofficial.response.films.image_response import ImageResponse
 from kinopoisk_unofficial.response.films.premiere_response import PremiereResponse
 from kinopoisk_unofficial.response.films.related_film_respons import RelatedFilmResponse
 from kinopoisk_unofficial.response.films.search_by_keyword_response import SearchByKeywordResponse
@@ -51,6 +53,9 @@ class FilmsApiClient(ApiClient):
         return self._send_request(request)
 
     def send_film_frame_request(self, request: FilmFrameRequest) -> FilmFrameResponse:
+        return self._send_request(request)
+
+    def send_image_request(self, request: ImageRequest) -> ImageResponse:
         return self._send_request(request)
 
     def send_film_video_request(self, request: FilmVideoRequest) -> FilmVideoResponse:
