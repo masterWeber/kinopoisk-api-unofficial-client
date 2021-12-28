@@ -8,5 +8,6 @@ from kinopoisk_unofficial.model.found_film import FoundFilm
 
 @dataclass(frozen=True)
 class FilmSearchByFiltersResponse(Response):
-    pages_count: int
-    films: List[FoundFilm] = field(default_factory=list)
+    total: int
+    totalPages: int
+    items: List[FoundFilm] = field(default_factory=list)

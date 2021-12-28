@@ -3,40 +3,50 @@ from typing import List, Optional
 from kinopoisk_unofficial.client.http_method import HttpMethod
 from kinopoisk_unofficial.contract.request import Request
 from kinopoisk_unofficial.model.dictonary.film_type import FilmType
+from kinopoisk_unofficial.model.filter_country import FilterCountry
+from kinopoisk_unofficial.model.filter_genre import FilterGenre
 from kinopoisk_unofficial.model.filter_order import FilterOrder
 from kinopoisk_unofficial.response.films.film_search_by_filters_response import FilmSearchByFiltersResponse
 
 
 class FilmSearchByFiltersRequest(Request):
     METHOD: HttpMethod = HttpMethod.GET
-    PATH: str = '/api/v2.1/films/search-by-filters'
+    PATH: str = '/api/v2.2/films'
     RESPONSE: type = FilmSearchByFiltersResponse
 
-    __country: List[int] = []
-    __genre: List[int] = []
+    __countries: List[FilterCountry] = []
+    __genres: List[FilterGenre] = []
     __order: Optional[FilterOrder] = None
     __type: Optional[FilmType] = None
     __rating_from: Optional[int] = None
     __rating_to: Optional[int] = None
     __year_from: Optional[int] = None
     __year_to: Optional[int] = None
+    __imdb_id: Optional[str] = None
+    __keyword: Optional[str] = None
     __page: int = 1
 
     @property
-    def country(self) -> List[int]:
-        return self.__country
+    def countries(self) -> List[FilterCountry]:
+        return self.__countries
 
-    @country.setter
-    def country(self, country: List[int]) -> None:
-        self.__country = country
+    @countries.setter
+    def countries(self, countries: List[FilterCountry]) -> None:
+        self.__countries = countries
+
+    def add_country(self, country: FilterCountry) -> None:
+        self.__countries.append(country)
 
     @property
-    def genre(self) -> List[int]:
-        return self.__genre
+    def genres(self) -> List[FilterGenre]:
+        return self.__genres
 
-    @genre.setter
-    def genre(self, genre: List[int]) -> None:
-        self.__genre = genre
+    @genres.setter
+    def genres(self, genres: List[FilterGenre]) -> None:
+        self.__genres = genres
+
+    def add_genre(self, genre: FilterGenre) -> None:
+        self.__genres.append(genre)
 
     @property
     def order(self) -> Optional[FilterOrder]:
@@ -87,6 +97,22 @@ class FilmSearchByFiltersRequest(Request):
         self.__year_to = year_to
 
     @property
+    def imdb_id(self) -> Optional[str]:
+        return self.__imdb_id
+
+    @imdb_id.setter
+    def imdb_id(self, imdb_id: Optional[str]) -> None:
+        self.__imdb_id = imdb_id
+
+    @property
+    def keyword(self) -> Optional[str]:
+        return self.__keyword
+
+    @keyword.setter
+    def keyword(self, keyword: Optional[str]) -> None:
+        self.__keyword = keyword
+
+    @property
     def page(self) -> int:
         return self.__page
 
@@ -96,14 +122,16 @@ class FilmSearchByFiltersRequest(Request):
 
     def path(self) -> str:
         options = {
-            'country': ','.join(str(c) for c in self.country),
-            'genre': ','.join(str(g) for g in self.genre),
+            'countries': ','.join(str(c.id) for c in self.countries),
+            'genres': ','.join(str(g.id) for g in self.genres),
             'order': self.order.value if self.order is not None else None,
             'type': self.type.value if self.type is not None else None,
             'ratingFrom': self.rating_from,
             'ratingTo': self.rating_to,
             'yearFrom': self.year_from,
             'yearTo': self.year_to,
+            'imdbId': self.imdb_id,
+            'keyword': self.keyword,
             'page': self.page
         }
 

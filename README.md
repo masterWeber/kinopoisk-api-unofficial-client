@@ -227,13 +227,17 @@ response = api_client.films.send_filters_request(request)
 
 ```python
 from kinopoisk_unofficial.kinopoisk_api_client import KinopoiskApiClient
+from kinopoisk_unofficial.model.filter_country import FilterCountry
+from kinopoisk_unofficial.model.filter_order import FilterOrder
 from kinopoisk_unofficial.request.films.film_search_by_filters_request import FilmSearchByFiltersRequest
 
 api_client = KinopoiskApiClient("<your_token>")
 
 request = FilmSearchByFiltersRequest()
-request.year_from = 2020
+request.year_from = 2021
 request.rating_from = 5
+request.order = FilterOrder.RATING
+request.add_country(FilterCountry(1, 'США'))
 
 response = api_client.films.send_film_search_by_filters_request(request)
 ```
