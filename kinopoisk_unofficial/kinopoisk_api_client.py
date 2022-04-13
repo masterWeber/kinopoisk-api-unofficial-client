@@ -16,7 +16,10 @@ class KinopoiskApiClient:
 
     def __init__(self, token: str) -> None:
         http_client = HttpClient(self.__base_url)
+
         apischema.settings.camel_case = True
+        apischema.settings.deserialization.additional_properties = True
+
         self.__films = FilmsApiClient(http_client, apischema, token)
         self.__reviews = ReviewsApiClient(http_client, apischema, token)
         self.__staff = StaffApiClient(http_client, apischema, token)
