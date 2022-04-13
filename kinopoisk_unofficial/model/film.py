@@ -41,6 +41,7 @@ class Film:
     start_year: Union[int, None]
     end_year: Union[int, None]
     cover_url: Optional[str] = None
+    logo_url: Optional[str] = None
     web_url: Optional[str] = None
     slogan: Optional[str] = None
     description: Optional[str] = None
