@@ -8,16 +8,14 @@ from kinopoisk_unofficial.model.genre import Genre
 
 @dataclass
 class FoundFilm:
-    kinopoisk_id: Optional[int] = None
-    imdb_id: Optional[str] = None
+    filmId: Optional[int] = None
     name_ru: Optional[str] = None
     name_en: Optional[str] = None
-    name_original: Optional[str] = None
     countries: List[Country] = field(default_factory=list)
     genres: List[Genre] = field(default_factory=list)
-    rating_kinopoisk: Optional[float] = None
-    rating_imdb: Optional[float] = None
-    year: Optional[int] = None
+    rating: Optional[str] = None
+    ratingVoteCount: Optional[int] = None
+    year: Optional[str] = None
     type: Optional[FilmType] = None
     film_length: Optional[str] = None
     poster_url: Optional[str] = None
