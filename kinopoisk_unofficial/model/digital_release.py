@@ -11,7 +11,7 @@ class DigitalRelease:
     film_id: int
     name_ru: str
     name_en: Union[str, None]
-    year: int
+    year: Union[int, None]
     poster_url: str
     poster_url_preview: str
     rating: Union[float, None]
